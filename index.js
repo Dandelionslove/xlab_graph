@@ -39,7 +39,8 @@ function initAll() {
                        var text_div = d3.select('body').append('div').attr('class', 'text_div');
                        var p1 = text_div.append('p').attr('class', 'p1').text('当前选中节点：');
                        var span1 = p1.append('span').text('无');
-                       var p2 = text_div.append('p').attr('class', 'p2').text('根因追溯图：');
+                       var paths_string_div = text_div.append('div').attr('class','paths_string_div');
+                       // var p2 = text_div.append('p').attr('class', 'p2').text('根因追溯图：');
                        // var span2 = p2.append('span');
                        var clear_cause_type = 1;
                        var possible_cause_type = 2;
@@ -163,6 +164,7 @@ function initAll() {
 
                            //用于text区域展示
                            var target_source_json_obj = {};
+                           var paths_string = []; //用于展示根源路径的字符串
 
                            for (var i = 0; i < links.length; i++) {
                                total_links_lines.push(links[i]);
@@ -567,10 +569,12 @@ function initAll() {
                                if (is_clicked_twice) {
                                    span1.text('无');
                                    d3.select('div.text_div').select('svg').remove();
+                                   d3.select('div.sub_paths_string_div').remove();
                                }
                                else {
                                    span1.text(current_clicked_node_name);
                                    build_target_source_tree(target_source_json_obj);
+                                   show_paths_string();
                                }
                            }
 
@@ -657,6 +661,50 @@ function initAll() {
                                    .attr("dx", 10)
                                    .attr("dy", -5)
                                    .attr("y", o.y);
+                           }
+
+                           function show_paths_string()
+                           {
+                               build_paths_string();
+                               d3.select('div.sub_paths_string_div').remove();
+                               var sub_paths_string_div = d3.select('div.paths_string_div').append('div').attr('class','sub_paths_string_div');
+                               sub_paths_string_div.append('br');
+                               sub_paths_string_div.append('br');
+                               for(var i=0;i<paths_string.length;i++)
+                               {
+                                   var _path_string = paths_string[i].split(',').reverse().join('-->');
+                                   // console.log(_path_string);
+                                   sub_paths_string_div.append('p').text('根因路径'+(i+1)+':  '+_path_string).attr('class','paths_string');
+                               }
+                           }
+
+                           function build_paths_string()
+                           {
+                               //广度优先构建路径字符串
+                               paths_string = [];
+                               var cur_node_name = current_clicked_node_name;
+                               paths_string.push(cur_node_name);
+                               _build_paths_string(target_source_json_obj.children, paths_string[0]);
+                           }
+
+                           function _build_paths_string(children, cur_string)
+                           {
+                               if (children.length == 0)
+                               {
+                                   return;
+                               }
+                               var sub_string=[];
+                               for(var i=0;i<children.length;i++)
+                               {
+                                   sub_string.push(cur_string+','+children[i].name);
+                               }
+                               var cur_string_index_in_paths = paths_string.indexOf(cur_string);
+                               paths_string.splice(cur_string_index_in_paths, 1);
+                               for(var i=0;i<sub_string.length;i++)
+                               {
+                                   paths_string.push(sub_string[i]);
+                                   _build_paths_string(children[i].children, sub_string[i]);
+                               }
                            }
                        }
                    // })
