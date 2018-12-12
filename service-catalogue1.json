@@ -1,0 +1,1268 @@
+{
+  "nodes": [
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 150,
+      "centerY": 90,
+      "name": "timestamp"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 675,
+      "centerY": 480,
+      "name": "catalogue_1/CPU_usage"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 183,
+      "centerY": 392,
+      "name": "catalogue_1/MEM_usage"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 180,
+      "centerY": 195,
+      "name": "catalogue_1/Cached_MEM_usage"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 405,
+      "centerY": 345,
+      "name": "catalogue_1/NET_Input"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 480,
+      "centerY": 165,
+      "name": "catalogue_1/NET_Output"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 510,
+      "centerY": 45,
+      "name": "catalogue_1/FS_reads"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 285,
+      "centerY": 495,
+      "name": "catalogue:80/request_duration_seconds_count"
+    },
+    {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 495,
+      "centerY": 600,
+      "name": "catalogue:80/request_duration_seconds_bucket"
+    }
+  ],
+  "edgesSet": [
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 180,
+        "centerY": 195,
+        "name": "catalogue_1/Cached_MEM_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 183,
+        "centerY": 392,
+        "name": "catalogue_1/MEM_usage"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 285,
+        "centerY": 495,
+        "name": "catalogue:80/request_duration_seconds_count"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 495,
+        "centerY": 600,
+        "name": "catalogue:80/request_duration_seconds_bucket"
+      },
+      "endpoint1": {
+        "ordinal": 0
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [
+        "nl",
+        "dd"
+      ],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 675,
+        "centerY": 480,
+        "name": "catalogue_1/CPU_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 285,
+        "centerY": 495,
+        "name": "catalogue:80/request_duration_seconds_count"
+      },
+      "endpoint1": {
+        "ordinal": 0
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [
+        "nl",
+        "pd"
+      ],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 405,
+        "centerY": 345,
+        "name": "catalogue_1/NET_Input"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 495,
+        "centerY": 600,
+        "name": "catalogue:80/request_duration_seconds_bucket"
+      },
+      "endpoint1": {
+        "ordinal": 1
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 675,
+        "centerY": 480,
+        "name": "catalogue_1/CPU_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 405,
+        "centerY": 345,
+        "name": "catalogue_1/NET_Input"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 510,
+        "centerY": 45,
+        "name": "catalogue_1/FS_reads"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 480,
+        "centerY": 165,
+        "name": "catalogue_1/NET_Output"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 495,
+        "centerY": 600,
+        "name": "catalogue:80/request_duration_seconds_bucket"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 480,
+        "centerY": 165,
+        "name": "catalogue_1/NET_Output"
+      },
+      "endpoint1": {
+        "ordinal": 0
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [
+        "nl",
+        "dd"
+      ],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 183,
+        "centerY": 392,
+        "name": "catalogue_1/MEM_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 285,
+        "centerY": 495,
+        "name": "catalogue:80/request_duration_seconds_count"
+      },
+      "endpoint1": {
+        "ordinal": 1
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 180,
+        "centerY": 195,
+        "name": "catalogue_1/Cached_MEM_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 480,
+        "centerY": 165,
+        "name": "catalogue_1/NET_Output"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 405,
+        "centerY": 345,
+        "name": "catalogue_1/NET_Input"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 285,
+        "centerY": 495,
+        "name": "catalogue:80/request_duration_seconds_count"
+      },
+      "endpoint1": {
+        "ordinal": 0
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [
+        "nl",
+        "dd"
+      ],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 675,
+        "centerY": 480,
+        "name": "catalogue_1/CPU_usage"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 495,
+        "centerY": 600,
+        "name": "catalogue:80/request_duration_seconds_bucket"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 405,
+        "centerY": 345,
+        "name": "catalogue_1/NET_Input"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 480,
+        "centerY": 165,
+        "name": "catalogue_1/NET_Output"
+      },
+      "endpoint1": {
+        "ordinal": 1
+      },
+      "endpoint2": {
+        "ordinal": 1
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    },
+    {
+      "node1": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 150,
+        "centerY": 90,
+        "name": "timestamp"
+      },
+      "node2": {
+        "nodeType": {
+          "ordinal": 0
+        },
+        "centerX": 180,
+        "centerY": 195,
+        "name": "catalogue_1/Cached_MEM_usage"
+      },
+      "endpoint1": {
+        "ordinal": 2
+      },
+      "endpoint2": {
+        "ordinal": 2
+      },
+      "bold": false,
+      "properties": [],
+      "edgeTypeProbabilities": []
+    }
+  ],
+  "edgeLists": {
+    "catalogue_1/Cached_MEM_usage": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 183,
+          "centerY": 392,
+          "name": "catalogue_1/MEM_usage"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 150,
+          "centerY": 90,
+          "name": "timestamp"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 2
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue_1/NET_Input": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "timestamp": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 150,
+          "centerY": 90,
+          "name": "timestamp"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 2
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue:80/request_duration_seconds_count": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 183,
+          "centerY": 392,
+          "name": "catalogue_1/MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "pd"
+        ],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue_1/FS_reads": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 510,
+          "centerY": 45,
+          "name": "catalogue_1/FS_reads"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue_1/NET_Output": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 510,
+          "centerY": 45,
+          "name": "catalogue_1/FS_reads"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue:80/request_duration_seconds_bucket": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 480,
+          "centerY": 165,
+          "name": "catalogue_1/NET_Output"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "dd"
+        ],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue_1/MEM_usage": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 180,
+          "centerY": 195,
+          "name": "catalogue_1/Cached_MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 183,
+          "centerY": 392,
+          "name": "catalogue_1/MEM_usage"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 183,
+          "centerY": 392,
+          "name": "catalogue_1/MEM_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 1
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      }
+    ],
+    "catalogue_1/CPU_usage": [
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 405,
+          "centerY": 345,
+          "name": "catalogue_1/NET_Input"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 495,
+          "centerY": 600,
+          "name": "catalogue:80/request_duration_seconds_bucket"
+        },
+        "endpoint1": {
+          "ordinal": 2
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [],
+        "edgeTypeProbabilities": []
+      },
+      {
+        "node1": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 675,
+          "centerY": 480,
+          "name": "catalogue_1/CPU_usage"
+        },
+        "node2": {
+          "nodeType": {
+            "ordinal": 0
+          },
+          "centerX": 285,
+          "centerY": 495,
+          "name": "catalogue:80/request_duration_seconds_count"
+        },
+        "endpoint1": {
+          "ordinal": 0
+        },
+        "endpoint2": {
+          "ordinal": 1
+        },
+        "bold": false,
+        "properties": [
+          "nl",
+          "pd"
+        ],
+        "edgeTypeProbabilities": []
+      }
+    ]
+  },
+  "ambiguousTriples": [],
+  "underLineTriples": [],
+  "dottedUnderLineTriples": [],
+  "stuffRemovedSinceLastTripleAccess": true,
+  "highlightedEdges": [],
+  "namesHash": {
+    "catalogue:80/request_duration_seconds_count": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 285,
+      "centerY": 495,
+      "name": "catalogue:80/request_duration_seconds_count"
+    },
+    "catalogue_1/Cached_MEM_usage": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 180,
+      "centerY": 195,
+      "name": "catalogue_1/Cached_MEM_usage"
+    },
+    "catalogue_1/NET_Output": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 480,
+      "centerY": 165,
+      "name": "catalogue_1/NET_Output"
+    },
+    "catalogue:80/request_duration_seconds_bucket": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 495,
+      "centerY": 600,
+      "name": "catalogue:80/request_duration_seconds_bucket"
+    },
+    "catalogue_1/NET_Input": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 405,
+      "centerY": 345,
+      "name": "catalogue_1/NET_Input"
+    },
+    "catalogue_1/MEM_usage": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 183,
+      "centerY": 392,
+      "name": "catalogue_1/MEM_usage"
+    },
+    "catalogue_1/CPU_usage": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 675,
+      "centerY": 480,
+      "name": "catalogue_1/CPU_usage"
+    },
+    "catalogue_1/FS_reads": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 510,
+      "centerY": 45,
+      "name": "catalogue_1/FS_reads"
+    },
+    "timestamp": {
+      "nodeType": {
+        "ordinal": 0
+      },
+      "centerX": 150,
+      "centerY": 90,
+      "name": "timestamp"
+    }
+  },
+  "pattern": false,
+  "pag": true
+}
