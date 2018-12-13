@@ -2,17 +2,10 @@ window.addEventListener('load', initAll);
 
 function initAll() {
     $(document).ready(function () {
-        //判断文件是否改变
-        var isFileChanged = false;
-        var fileInput = d3.select("#file");
-        fileInput.on('change', function (e) {
-            isFileChanged = true;
-            console.log('change');
-        });
-
+        $('#fountainG').hide();
         //上传文件按钮
-        // var submit_btn = d3.select('button#submit_btn');
         $('#submit_btn').click(function (e) {
+            cleanShow();
             var formData = new FormData();
             formData.append('file', $('#file')[0].files[0]);
             $.ajax({
@@ -24,43 +17,22 @@ function initAll() {
                 dataType: 'json',
                 crossDomain: true,
                 success: function (fb_data) {
-                    // console.log(fb_data);
-
-                    // if (isFileChanged)
-                    // {
-                    //     isFileChanged = false;
-                    //     cleanShow();
-                    //     buildShow(files[0]);
-                    // }
-                    console.log(fb_data['msg']);
+                    // $('#fountainG').show();
+                    // console.log(fb_data['msg']);
                     if (fb_data['msg'] == 'Success' && fb_data['code'] == 200) {
+                        // console.log(fb_data['data']);
                         let analysis_result = $.parseJSON(fb_data['data']);
                         cleanShow();
-                        // analysis_result = $.parseJSON(analysis_result);
-                        // console.log(analysis_result['edgeLists']);
                         buildShow(analysis_result);
                     }
 
-                    function cleanShow() {
-                        d3.selectAll('svg').remove();
-                        d3.select('p.sub_paths_string_div').remove();
-                        // span1.text("无");
-                        d3.select('div.text_div').remove();
-                        // d3.select('span').remove();
-                    }
-
                     function buildShow(jsonObj) {
-                        var text_div = d3.select('body').append('div').attr('class', 'text_div');
+                        var text_tree_show_div = d3.select('body').append('div').attr('class', 'text_tree_div');
+                        var text_div = text_tree_show_div.append('div').attr('class', 'text_div');
                         var p1 = text_div.append('p').attr('class', 'p1').text('当前选中节点：');
                         var span1 = p1.append('span').text('无');
                         var paths_string_div = text_div.append('div').attr('class', 'paths_string_div');
-                        // var reader = new FileReader();
-                        // reader.readAsText(file, 'UTF-8');
-                        // console.log(file);
-                        // var fileString = e.target.result;
-                        // var jsonObj = $.parseJSON(fileString);
                         var data = jsonObj['edgeLists'];
-                        // console.log(data);
                         var nodesName = [];
                         var my_nodes = []; //{name:node_name}
 
@@ -445,6 +417,7 @@ function initAll() {
                                 _searchSources(nodeIndex, 1, target_json); // 1代表搜索第一层因节点
                             }
 
+                            var kk=0;
                             function _searchSources(_target_index, current_layer, _target_json) {
                                 var sub_sources = [];
                                 var target_index = _target_index;
@@ -486,6 +459,8 @@ function initAll() {
                                                 if (sub_sources.includes(link.source.index)) {
                                                     continue;
                                                 }
+                                                kk++;
+                                                console.log(kk);
                                                 sub_sources.push(link.source.index);
                                                 var _source_json = {};
                                                 _source_json.children = [];
@@ -561,7 +536,7 @@ function initAll() {
 
                             function recoverText() {
                                 span1.text('无');
-                                d3.select('div.text_div').select('svg').remove();
+                                d3.select('div.tree_div').remove();
                                 d3.select('div.sub_paths_string_div').remove();
                             }
 
@@ -630,7 +605,8 @@ function initAll() {
 
                             function build_target_source_tree(json_data) {
                                 //先删除旧的tree svg
-                                d3.select('div.text_div svg').remove();
+                                d3.select('div.tree_div').remove();
+                                // d3.select('div.text_div svg').remove();
                                 var margin = {top: 100, right: 10, bottom: 240, left: 10},
                                     width = 340 - margin.left - margin.right,
                                     height = 600 - margin.top - margin.bottom;
@@ -647,8 +623,10 @@ function initAll() {
                                     }
                                 };
 
-                                var svg = d3.select("div.text_div").append('svg')
-                                    .attr("width", width + margin.left + margin.right)
+                                var tree_div = d3.select('div.text_tree_div').append('div').attr('class','tree_div');
+                                var svg = d3.select("div.tree_div").append('svg')
+                                    // .attr("width", width + margin.left + margin.right)
+                                    .attr('width','100%')
                                     .attr('height', height + margin.top + margin.bottom)
                                     .append('g')
                                     .attr('transform', 'translate(' + margin.left + "," + margin.top + ")");
@@ -695,10 +673,10 @@ function initAll() {
                                 build_paths_string();
                                 d3.select('div.sub_paths_string_div').remove();
                                 var sub_paths_string_div = d3.select('div.paths_string_div').append('div').attr('class', 'sub_paths_string_div');
-                                sub_paths_string_div.append('br');
-                                sub_paths_string_div.append('br');
+                                // sub_paths_string_div.append('br');
+                                // sub_paths_string_div.append('br');
                                 for (var i = 0; i < paths_string.length; i++) {
-                                    var _path_string = paths_string[i].split(',').reverse().join('-->');
+                                    var _path_string = paths_string[i].split(',').reverse().join(' --> ');
                                     sub_paths_string_div.append('p').text('根因路径' + (i + 1) + ':  ' + _path_string).attr('class', 'paths_string');
                                 }
                             }
@@ -731,10 +709,31 @@ function initAll() {
                     }
                 },
                 error: function (msg) {
-                    console.log('error');
+                    alert('error');
+                },
+                complete:function(){
+                    console.log('complete');
+                    // $('#fountainG').hide();
                 }
             });
 
-        })
+        });
+        loadingEffect();
+        function loadingEffect() {
+            var loading = $('#fountainG');
+            loading.hide();
+            $(document).ajaxStart(function () {
+                loading.show();
+            }).ajaxStop(function () {
+                loading.hide();
+            });
+        }
+
+        function cleanShow() {
+            d3.select('svg.total_graph').remove();
+            d3.select('p.sub_paths_string_div').remove();
+            d3.select('div.text_tree_div').remove();
+        }
+
     })
 }

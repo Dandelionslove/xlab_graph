@@ -2,6 +2,13 @@ window.addEventListener('load', initAll);
 
 function initAll() {
     $(document).ready(function () {
+        //判断文件是否改变
+        // var isFileChanged = false;
+        // var fileInput = d3.select("#file");
+        // fileInput.on('change', function (e) {
+        //     isFileChanged = true;
+        //     // console.log('change');
+        // });
         //上传文件按钮
         var submit_btn = d3.select('button#submit_btn');
         submit_btn.on('click', function (e) {
