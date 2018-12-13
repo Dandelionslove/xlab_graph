@@ -4,55 +4,63 @@ function initAll() {
     $(document).ready(function () {
         //判断文件是否改变
         var isFileChanged = false;
-        var fileInput = d3.select("#json_file");
+        var fileInput = d3.select("#file");
         fileInput.on('change', function (e) {
             isFileChanged = true;
             console.log('change');
         });
 
         //上传文件按钮
-        var submit_btn = d3.select('button#submit_btn');
-        submit_btn.on('click', function (e) {
-            var file_obj = d3.select('input#json_file');
-            if (file_obj.attr('value') == "") {
-                console.log('未选择文件');
-            }
-            var files = $('#json_file').prop('files');
-            if (files.length == 0) {
-                alert('请选择文件');
-            }
-            else {
-                // if(lastFileValue === null)
-                // {
-                //     lastFileValue
-                // }
-                var text_div = d3.select('body').append('div').attr('class', 'text_div');
-                var p1 = text_div.append('p').attr('class', 'p1').text('当前选中节点：');
-                var span1 = p1.append('span').text('无');
-                var paths_string_div = text_div.append('div').attr('class', 'paths_string_div');
-                // var p2 = text_div.append('p').attr('class', 'p2').text('根因追溯图：');
-                // var span2 = p2.append('span');
+        // var submit_btn = d3.select('button#submit_btn');
+        $('#submit_btn').click(function (e) {
+            var formData = new FormData();
+            formData.append('file', $('#file')[0].files[0]);
+            $.ajax({
+                url: 'http://10.60.38.182:10080/search/' + $('#select')[0].value,
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                dataType: 'json',
+                crossDomain: true,
+                success: function (fb_data) {
+                    // console.log(fb_data);
 
-                if (isFileChanged) {
-                    isFileChanged = false;
-                    cleanShow();
-                    buildShow(files[0]);
-                }
+                    // if (isFileChanged)
+                    // {
+                    //     isFileChanged = false;
+                    //     cleanShow();
+                    //     buildShow(files[0]);
+                    // }
+                    console.log(fb_data['msg']);
+                    if (fb_data['msg'] == 'Success' && fb_data['code'] == 200) {
+                        let analysis_result = $.parseJSON(fb_data['data']);
+                        cleanShow();
+                        // analysis_result = $.parseJSON(analysis_result);
+                        // console.log(analysis_result['edgeLists']);
+                        buildShow(analysis_result);
+                    }
 
-                function cleanShow()
-                {
-                    d3.selectAll('svg').remove();
-                    d3.select('p.sub_paths_string_div').remove();
-                    span1.text("无");
-                }
-                function buildShow(file) {
-                    var reader = new FileReader();
-                    reader.readAsText(file, 'UTF-8');
-                    console.log(file);
-                    reader.addEventListener('load', function (e) {
-                        var fileString = e.target.result;
-                        var jsonObj = $.parseJSON(fileString);
+                    function cleanShow() {
+                        d3.selectAll('svg').remove();
+                        d3.select('p.sub_paths_string_div').remove();
+                        // span1.text("无");
+                        d3.select('div.text_div').remove();
+                        // d3.select('span').remove();
+                    }
+
+                    function buildShow(jsonObj) {
+                        var text_div = d3.select('body').append('div').attr('class', 'text_div');
+                        var p1 = text_div.append('p').attr('class', 'p1').text('当前选中节点：');
+                        var span1 = p1.append('span').text('无');
+                        var paths_string_div = text_div.append('div').attr('class', 'paths_string_div');
+                        // var reader = new FileReader();
+                        // reader.readAsText(file, 'UTF-8');
+                        // console.log(file);
+                        // var fileString = e.target.result;
+                        // var jsonObj = $.parseJSON(fileString);
                         var data = jsonObj['edgeLists'];
+                        // console.log(data);
                         var nodesName = [];
                         var my_nodes = []; //{name:node_name}
 
@@ -720,12 +728,13 @@ function initAll() {
                             }
                         }
 
-
-                    });
+                    }
+                },
+                error: function (msg) {
+                    console.log('error');
                 }
+            });
 
-
-            }
-        });
+        })
     })
 }
